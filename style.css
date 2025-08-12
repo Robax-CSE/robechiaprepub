@@ -656,7 +656,7 @@ img, iframe { max-width: 100%; }
 
 /* Aggiusta da mobile - sezione nascosta */
 :root { --nav-h: 64px; }                   /* desktop height */
-@media (max-width: 768px) { :root { --nav-h: 95px; } }  /* mobile height */
+@media (max-width: 768px) { :root { --nav-h: 100px; } }  /* mobile height */
 
 section[id], header.hero {
   scroll-margin-top: calc(var(--nav-h) + 12px);
@@ -673,5 +673,12 @@ button,
   word-break: keep-all;
 }
 
-
+/* Evita font boosting solo su queste sezioni */
+.extra-info,
+.section-rsvp {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  font-size: 1rem;       /* mantiene coerenza con gli altri paragrafi */
+  line-height: 1.6;
+}
 
