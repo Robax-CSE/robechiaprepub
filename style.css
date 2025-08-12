@@ -651,3 +651,15 @@ img, iframe { max-width: 100%; }
     max-width: 100%; /* occupa tutta la colonna su desktop */
   }
 }
+
+
+
+/* Aggiusta da mobile - sezione nascosta */
+:root { --nav-h: 64px; }                   /* desktop height */
+@media (max-width: 768px) { :root { --nav-h: 56px; } }  /* mobile height */
+
+section[id], header.hero {
+  scroll-margin-top: calc(var(--nav-h) + 12px);
+}
+
+
