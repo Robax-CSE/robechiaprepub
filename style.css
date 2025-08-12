@@ -656,10 +656,22 @@ img, iframe { max-width: 100%; }
 
 /* Aggiusta da mobile - sezione nascosta */
 :root { --nav-h: 64px; }                   /* desktop height */
-@media (max-width: 768px) { :root { --nav-h: 56px; } }  /* mobile height */
+@media (max-width: 768px) { :root { --nav-h: 80px; } }  /* mobile height */
 
 section[id], header.hero {
   scroll-margin-top: calc(var(--nav-h) + 12px);
 }
+
+
+/* Non spezzare parole nei controlli / bottoni */
+.section-rsvp a,
+.nav-links a,
+button,
+.puglia-btn {
+  white-space: nowrap;
+  overflow-wrap: normal;  /* reset di word-wrap/overflow-wrap */
+  word-break: keep-all;
+}
+
 
 
