@@ -682,3 +682,17 @@ button,
   line-height: 1.6;
 }
 
+
+/*Altezza hero più compatta */
+.hero {
+  height: 60vh;        /* proporzione base */
+  max-height: 500px;   /* limite per evitare eccesso su schermi alti */
+}
+
+@media (min-width: 769px) and (max-device-width: 768px) {
+  .hero {
+    height: 40vh; /* più compatta in "desktop view" da mobile */
+  }
+}
+
+
