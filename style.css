@@ -656,7 +656,7 @@ img, iframe { max-width: 100%; }
 
 /* Aggiusta da mobile - sezione nascosta */
 :root { --nav-h: 64px; }                   /* desktop height */
-@media (max-width: 768px) { :root { --nav-h: 80px; } }  /* mobile height */
+@media (max-width: 768px) { :root { --nav-h: 95px; } }  /* mobile height */
 
 section[id], header.hero {
   scroll-margin-top: calc(var(--nav-h) + 12px);
