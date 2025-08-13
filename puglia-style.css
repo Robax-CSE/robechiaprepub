@@ -423,38 +423,39 @@ body { padding-top: 64px; } /* spazio per la topbar fissa su desktop */
   }
 }
 
-
 /* === Fixes for mobile devices in "desktop mode" === */
 @media (hover: none) and (pointer: coarse) {
-  /* Keep explore cards single column */
-  .explore-grid {
-    grid-template-columns: 1fr;
+  /* Use two columns like desktop */
+  .explore-grid,
+  .accommodation-grid,
+  .car-hire-grid {
+    grid-template-columns: 1fr 1fr;
   }
-  .explore-card {
-    flex-direction: column;
-    min-width: 0; /* allow shrinking */
+
+  .explore-card,
+  .accommodation-card,
+  .car-hire-card {
+    flex-direction: row;
+    min-width: 0;
   }
+
   .explore-image {
-    flex: 0 0 auto;
-    max-width: 100%;
+    flex: 0 0 40%;   /* 40% width for image */
+    max-width: 40%;
+    object-fit: cover;
   }
+
   .explore-text {
     flex: 1 1 0;
     min-width: 0;
-    padding-left: 0;
+    padding-left: 20px;
   }
+
   .explore-text h3,
   .explore-text p {
     overflow-wrap: break-word;
     hyphens: auto;
   }
-
-  .explore-image {
-    flex: 0 0 auto;
-    max-width: 280px;  /* keeps image more modest in size */
-    width: 100%;
-    margin: 0 auto;    /* center in column layout */
-    display: block;
-  }
 }
+
 
