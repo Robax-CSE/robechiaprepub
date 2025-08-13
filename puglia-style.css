@@ -423,24 +423,20 @@ body { padding-top: 64px; } /* spazio per la topbar fissa su desktop */
   }
 }
 
-/* === Fixes for mobile devices in "desktop mode" === */
+/* === Fixes for mobile devices in "desktop mode" (Explore only) === */
 @media (hover: none) and (pointer: coarse) {
-  /* Use two columns like desktop */
-  .explore-grid,
-  .accommodation-grid,
-  .car-hire-grid {
+  /* Use two columns like desktop for Explore only */
+  .explore-grid {
     grid-template-columns: 1fr 1fr;
   }
 
-  .explore-card,
-  .accommodation-card,
-  .car-hire-card {
+  .explore-card {
     flex-direction: row;
     min-width: 0;
   }
 
   .explore-image {
-    flex: 0 0 40%;   /* 40% width for image */
+    flex: 0 0 40%;   /* image takes ~40% of the card width */
     max-width: 40%;
     object-fit: cover;
   }
@@ -457,5 +453,6 @@ body { padding-top: 64px; } /* spazio per la topbar fissa su desktop */
     hyphens: auto;
   }
 }
+
 
 
