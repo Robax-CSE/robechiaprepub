@@ -458,4 +458,20 @@ body { padding-top: 64px; } /* spazio per la topbar fissa su desktop */
 }
 
 
+@media (hover: none) and (pointer: coarse) {
+  /* Stop mobile browsers from arbitrarily boosting text sizes */
+  html {
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%; /* Safari/Chrome iOS */
+    -ms-text-size-adjust: 100%;     /* legacy */
+  }
+
+  /* Normalize card typography a bit */
+  .explore-text h3 { font-size: 1.15rem; line-height: 1.25; }
+  .explore-text p  { font-size: 1rem;   line-height: 1.55; }
+
+  .accommodation-card p,
+  .car-hire-card p { font-size: 1rem; line-height: 1.55; }
+}
+
 
