@@ -387,15 +387,39 @@ body { padding-top: 64px; } /* spazio per la topbar fissa su desktop */
 .hero { margin-top: 0; }
 
 @media (max-width: 700px) {
-  .nav-links {
-    flex-wrap: nowrap;        /* stay in one row */
-    justify-content: center;
-    overflow-x: auto;         /* scroll if needed */
-    -webkit-overflow-scrolling: touch;
+  /* Switch to two-row grid layout */
+  .topnav-inner {
+    display: grid;
+    grid-template-columns: 1fr auto; /* brand + lang toggle */
+    grid-template-rows: auto auto;   /* first row for brand/lang, second for links */
+    align-items: center;
+    gap: 6px 12px;
   }
+
+  /* Brand: row 1, col 1 */
+  .topnav .brand {
+    grid-column: 1 / 2;
+  }
+
+  /* Lang toggle: row 1, col 2 */
+  .lang-toggle {
+    grid-column: 2 / 3;
+    margin-left: 0;
+  }
+
+  /* Nav links: row 2, full width */
+  .nav-links {
+    grid-column: 1 / -1;   /* span full width */
+    justify-content: center;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
   .nav-links a {
-    padding: 8px 10px;        /* slightly smaller padding */
-    font-size: 0.9rem;        /* shrink text a bit */
-    white-space: nowrap;      /* keep each link text on one line */
+    white-space: nowrap;
+    padding: 8px 12px;
+    font-size: 0.95rem;
   }
 }
+
