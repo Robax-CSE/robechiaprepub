@@ -423,14 +423,30 @@ body { padding-top: 64px; } /* spazio per la topbar fissa su desktop */
   }
 }
 
-/* Allow the text column to actually shrink inside the flex row */
-.explore-text { 
-  min-width: 0;             /* KEY: prevents clipping/truncation */
-}
 
-/* (Optional) help long words wrap nicely on narrow screens */
-.explore-text p, 
-.explore-text h3 {
-  overflow-wrap: anywhere;
+/* === Fixes for mobile devices in "desktop mode" === */
+@media (hover: none) and (pointer: coarse) {
+  /* Keep explore cards single column */
+  .explore-grid {
+    grid-template-columns: 1fr;
+  }
+  .explore-card {
+    flex-direction: column;
+    min-width: 0; /* allow shrinking */
+  }
+  .explore-image {
+    flex: 0 0 auto;
+    max-width: 100%;
+  }
+  .explore-text {
+    flex: 1 1 0;
+    min-width: 0;
+    padding-left: 0;
+  }
+  .explore-text h3,
+  .explore-text p {
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
 }
 
