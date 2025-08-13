@@ -387,5 +387,15 @@ body { padding-top: 64px; } /* spazio per la topbar fissa su desktop */
 .hero { margin-top: 0; }
 
 @media (max-width: 700px) {
-  .nav-links { flex-wrap: wrap; justify-content: center; }
+  .nav-links {
+    flex-wrap: nowrap;        /* stay in one row */
+    justify-content: center;
+    overflow-x: auto;         /* scroll if needed */
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav-links a {
+    padding: 8px 10px;        /* slightly smaller padding */
+    font-size: 0.9rem;        /* shrink text a bit */
+    white-space: nowrap;      /* keep each link text on one line */
+  }
 }
