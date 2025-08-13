@@ -423,34 +423,37 @@ body { padding-top: 64px; } /* spazio per la topbar fissa su desktop */
   }
 }
 
-/* === Fixes for mobile devices in "desktop mode" (Explore only) === */
+/* === Fixes for mobile devices in "desktop mode" === */
 @media (hover: none) and (pointer: coarse) {
-  /* Use two columns like desktop for Explore only */
+  /* Keep explore cards single column */
   .explore-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
-
   .explore-card {
-    flex-direction: row;
-    min-width: 0;
+    flex-direction: column;
+    min-width: 0; /* allow shrinking */
   }
-
   .explore-image {
-    flex: 0 0 40%;   /* image takes ~40% of the card width */
-    max-width: 40%;
-    object-fit: cover;
+    flex: 0 0 auto;
+    max-width: 100%;
   }
-
   .explore-text {
     flex: 1 1 0;
     min-width: 0;
-    padding-left: 20px;
+    padding-left: 0;
   }
-
   .explore-text h3,
   .explore-text p {
     overflow-wrap: break-word;
     hyphens: auto;
+  }
+
+  .explore-image {
+    flex: 0 0 auto;
+    max-width: 280px;  /* keeps image more modest in size */
+    width: 100%;
+    margin: 0 auto;    /* center in column layout */
+    display: block;
   }
 }
 
