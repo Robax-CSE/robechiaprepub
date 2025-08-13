@@ -448,5 +448,13 @@ body { padding-top: 64px; } /* spazio per la topbar fissa su desktop */
     overflow-wrap: break-word;
     hyphens: auto;
   }
+
+  .explore-image {
+    flex: 0 0 auto;
+    max-width: 280px;  /* keeps image more modest in size */
+    width: 100%;
+    margin: 0 auto;    /* center in column layout */
+    display: block;
+  }
 }
 
