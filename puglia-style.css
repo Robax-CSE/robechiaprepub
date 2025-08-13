@@ -423,3 +423,14 @@ body { padding-top: 64px; } /* spazio per la topbar fissa su desktop */
   }
 }
 
+/* Allow the text column to actually shrink inside the flex row */
+.explore-text { 
+  min-width: 0;             /* KEY: prevents clipping/truncation */
+}
+
+/* (Optional) help long words wrap nicely on narrow screens */
+.explore-text p, 
+.explore-text h3 {
+  overflow-wrap: anywhere;
+}
+
