@@ -474,4 +474,27 @@ body { padding-top: 64px; } /* spazio per la topbar fissa su desktop */
   .car-hire-card p { font-size: 1rem; line-height: 1.55; }
 }
 
+.airport-maps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+.map-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+}
+.map-label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.95rem;
+  margin: 8px 0;
+  color: #fff; /* match hero contrast */
+}
+@media (min-width: 768px) {
+  .airport-maps {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
