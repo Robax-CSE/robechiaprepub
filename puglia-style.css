@@ -502,8 +502,8 @@ body { padding-top: 64px; } /* spazio per la topbar fissa su desktop */
 }
 
 .map-item iframe {
-  width: 50%;
-  max-width: 250px;
+  width: 100%;
+  max-width: 500px;
   height: 300px;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
