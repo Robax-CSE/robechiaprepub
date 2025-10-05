@@ -283,16 +283,12 @@
   font-size: 1.4rem;
   color: #3d3024;
   margin-bottom: 8px;
-  flex: 1 1 0;      /* allows text block to shrink properly in Chrome/Edge */
-  min-width: 0;  
 }
 .explore-text p {
   font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
   color: #555;
   line-height: 1.5;
-  flex: 1 1 0;      /* allows text block to shrink properly in Chrome/Edge */
-  min-width: 0;  
 }
 @media (min-width: 768px) {
   .explore-card {
@@ -300,6 +296,8 @@
   }
   .explore-text {
     padding-left: 25px;
+    flex: 1 1 0;      /* allows text block to shrink properly in Chrome/Edge */
+    min-width: 0;     /* prevents overflow bug specific to Chromium browsers */
   }
 }
 
@@ -447,6 +445,7 @@ body { padding-top: 64px; } /* spazio per la topbar fissa su desktop */
     flex: 1 1 0;
     min-width: 0;
     padding-left: 0;
+    flex: 1 1 0;      /* allows text block to shrink properly in Chrome/Edge */
   }
   .explore-text h3,
   .explore-text p {
