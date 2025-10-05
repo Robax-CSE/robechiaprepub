@@ -275,6 +275,8 @@
 }
 .explore-text {
   width: 100%;
+  flex: 1 1 0;      /* allows text block to shrink properly in Chrome/Edge */
+  min-width: 0;     /* prevents overflow bug specific to Chromium browsers */
 }
 .explore-text h3 {
   font-family: 'Playfair Display', serif;
