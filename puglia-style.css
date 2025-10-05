@@ -283,12 +283,16 @@
   font-size: 1.4rem;
   color: #3d3024;
   margin-bottom: 8px;
+  flex: 1 1 0;      /* allows text block to shrink properly in Chrome/Edge */
+  min-width: 0;  
 }
 .explore-text p {
   font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
   color: #555;
   line-height: 1.5;
+  flex: 1 1 0;      /* allows text block to shrink properly in Chrome/Edge */
+  min-width: 0;  
 }
 @media (min-width: 768px) {
   .explore-card {
