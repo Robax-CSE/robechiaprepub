@@ -275,8 +275,6 @@
 }
 .explore-text {
   width: 100%;
-  flex: 1 1 0;      /* allows text block to shrink properly in Chrome/Edge */
-  min-width: 0;     /* prevents overflow bug specific to Chromium browsers */
 }
 .explore-text h3 {
   font-family: 'Playfair Display', serif;
@@ -296,8 +294,6 @@
   }
   .explore-text {
     padding-left: 25px;
-    flex: 1 1 0;      /* allows text block to shrink properly in Chrome/Edge */
-    min-width: 0;     /* prevents overflow bug specific to Chromium browsers */
   }
 }
 
@@ -445,7 +441,6 @@ body { padding-top: 64px; } /* spazio per la topbar fissa su desktop */
     flex: 1 1 0;
     min-width: 0;
     padding-left: 0;
-    flex: 1 1 0;      /* allows text block to shrink properly in Chrome/Edge */
   }
   .explore-text h3,
   .explore-text p {
