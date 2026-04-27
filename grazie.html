@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grazie di cuore | Roberto & Chiara</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue: #275C7A;
+      --light-blue: #A2D4F5;
+      --cream: #FFF7E6;
+      --pink: #FDECEF;
+      --green: #EAF6F1;
+      --white-soft: rgba(255, 255, 255, 0.72);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: var(--blue);
+      background: url('images/background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      background-color: #F0F8FF;
+      background-blend-mode: lighten;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .topnav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(162, 212, 245, 0.92);
+      backdrop-filter: saturate(140%) blur(8px);
+      border-bottom: 1px solid #7AB6E2;
+      z-index: 9999;
+    }
+
+    .topnav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 16px;
+    }
+
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--blue);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .nav-link,
+    .lang-toggle {
+      border: 1px solid #7AB6E2;
+      background: #ffffff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--blue);
+      line-height: 1;
+      text-decoration: none;
+      font-weight: 700;
+      transition: background-color .2s ease, transform .15s ease;
+    }
+
+    .nav-link:hover,
+    .lang-toggle:hover {
+      background: #F0F8FF;
+      transform: translateY(-1px);
+    }
+
+    .thank-you-page {
+      min-height: 100vh;
+      padding: 110px 18px 40px;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .thank-you-card {
+      width: min(980px, 100%);
+      background: linear-gradient(135deg, rgba(255,247,230,0.92), rgba(253,236,239,0.9), rgba(234,246,241,0.9));
+      border: 1px solid rgba(122, 182, 226, 0.4);
+      border-radius: 28px;
+      box-shadow: 0 18px 45px rgba(39, 92, 122, 0.18);
+      padding: clamp(28px, 6vw, 70px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation: cardIn 1s ease both;
+    }
+
+    .thank-you-card::before,
+    .thank-you-card::after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: rgba(162, 212, 245, 0.34);
+      filter: blur(2px);
+      z-index: 0;
+      animation: floatBubble 7s ease-in-out infinite;
+    }
+
+    .thank-you-card::before {
+      top: -90px;
+      left: -80px;
+    }
+
+    .thank-you-card::after {
+      right: -95px;
+      bottom: -90px;
+      background: rgba(255, 105, 5, 0.13);
+      animation-delay: 1.2s;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .small-label {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--blue);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      margin: 0 0 16px;
+      font-size: clamp(2.3rem, 8vw, 5.2rem);
+      color: var(--blue);
+      line-height: 1.02;
+    }
+
+    .heart {
+      display: inline-block;
+      color: #ff6905;
+      animation: heartBeat 1.6s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .message {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: clamp(1.05rem, 2.2vw, 1.32rem);
+      line-height: 1.8;
+      color: var(--blue);
+    }
+
+    .signature {
+      margin-top: 28px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      color: var(--blue);
+    }
+
+    .button-row {
+      margin-top: 34px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .main-btn,
+    .secondary-btn {
+      display: inline-block;
+      padding: 13px 26px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .main-btn {
+      color: #fff;
+      background: #275C7A;
+      box-shadow: 0 0 18px rgba(30,200,255,0.28);
+      animation: pulseC 1.8s infinite ease-in-out;
+    }
+
+    .secondary-btn {
+      color: var(--blue);
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(122,182,226,0.7);
+    }
+
+    .main-btn:hover,
+    .secondary-btn:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 0 26px rgba(30,200,255,0.42);
+    }
+
+    .photo-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 36px auto 0;
+      max-width: 720px;
+    }
+
+    .photo-tile {
+      min-height: 120px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.62);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+      display: grid;
+      place-items: center;
+      font-size: 2.2rem;
+      transform: rotate(var(--r));
+      animation: tileIn 0.8s ease both;
+    }
+
+    .photo-tile:nth-child(1) { --r: -3deg; animation-delay: .18s; }
+    .photo-tile:nth-child(2) { --r: 2deg; animation-delay: .32s; }
+    .photo-tile:nth-child(3) { --r: -1deg; animation-delay: .46s; }
+
+    .floating-hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .floating-hearts span {
+      position: absolute;
+      bottom: -40px;
+      color: rgba(255, 105, 5, 0.42);
+      font-size: 1.4rem;
+      animation: riseUp linear infinite;
+    }
+
+    .floating-hearts span:nth-child(1) { left: 8%;  animation-duration: 8s;  animation-delay: 0s; }
+    .floating-hearts span:nth-child(2) { left: 20%; animation-duration: 11s; animation-delay: 1s; }
+    .floating-hearts span:nth-child(3) { left: 38%; animation-duration: 9s;  animation-delay: 2.2s; }
+    .floating-hearts span:nth-child(4) { left: 55%; animation-duration: 12s; animation-delay: .5s; }
+    .floating-hearts span:nth-child(5) { left: 72%; animation-duration: 8.5s; animation-delay: 1.8s; }
+    .floating-hearts span:nth-child(6) { left: 88%; animation-duration: 10s; animation-delay: 3s; }
+
+    footer {
+      text-align: center;
+      padding: 1.6rem 1rem;
+      font-size: 0.9rem;
+      background: #A2D4F5;
+      color: var(--blue);
+    }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(30px) scale(.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes tileIn {
+      from { opacity: 0; transform: translateY(20px) rotate(0deg); }
+      to { opacity: 1; transform: translateY(0) rotate(var(--r)); }
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      35% { transform: scale(1.22); }
+      55% { transform: scale(.96); }
+      75% { transform: scale(1.12); }
+    }
+
+    @keyframes floatBubble {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(18px, 16px); }
+    }
+
+    @keyframes pulseC {
+      0%   { transform: scale(1);   box-shadow: 0 0 16px rgba(30,200,255,0.30); }
+      50%  { transform: scale(1.05); box-shadow: 0 0 26px rgba(30,200,255,0.50); }
+      100% { transform: scale(1);   box-shadow: 0 0 16px rgba(30,200,255,0.30); }
+    }
+
+    @keyframes riseUp {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      12% { opacity: 1; }
+      100% { transform: translateY(-110vh) rotate(280deg); opacity: 0; }
+    }
+
+    @media (max-width: 700px) {
+      .topnav-inner {
+        display: block;
+        text-align: center;
+        padding: 9px 10px;
+      }
+
+      .brand {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .nav-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .thank-you-page {
+        padding-top: 135px;
+      }
+
+      .photo-strip {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+      }
+
+      .photo-tile {
+        min-height: 90px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="topnav" role="navigation" aria-label="Navigazione pagina">
+    <div class="topnav-inner">
+      <a class="brand" href="index.html" data-en="Roberto & Chiara" data-it="Roberto & Chiara">Roberto & Chiara</a>
+      <div class="nav-actions">
+        <a class="nav-link" href="index.html" data-en="Back to website" data-it="Torna al sito">Torna al sito</a>
+        <button class="lang-toggle" type="button" onclick="toggleLanguage()" aria-label="Cambia lingua">🇬🇧 English</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="floating-hearts" aria-hidden="true">
+    <span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span>
+  </div>
+
+  <main class="thank-you-page">
+    <section class="thank-you-card" aria-labelledby="thank-title">
+      <div class="content">
+        <span class="small-label" data-en="A special thank you" data-it="Un grazie speciale">Un grazie speciale</span>
+
+        <h1 id="thank-title" data-en="Thank you from the heart" data-it="Grazie di cuore">
+          Grazie di cuore
+        </h1>
+
+        <p class="message"
+           data-en="Your gift means so much to us. Thank you for being part of the beginning of our new journey and for helping us make our honeymoon in Australia even more unforgettable. We will carry your affection with us, step by step, memory by memory."
+           data-it="Il vostro regalo significa tantissimo per noi. Grazie per essere parte dell’inizio del nostro nuovo viaggio e per aiutarci a rendere ancora più indimenticabile la nostra luna di miele in Australia. Porteremo il vostro affetto con noi, passo dopo passo, ricordo dopo ricordo.">
+          Il vostro regalo significa tantissimo per noi. Grazie per essere parte dell’inizio del nostro nuovo viaggio e per aiutarci a rendere ancora più indimenticabile la nostra luna di miele in Australia. Porteremo il vostro affetto con noi, passo dopo passo, ricordo dopo ricordo.
+        </p>
+
+        <div class="signature">
+          Roberto & Chiara <span class="heart">❤</span>
+        </div>
+
+        <div class="photo-strip" aria-hidden="true">
+          <div class="photo-tile">💌</div>
+          <div class="photo-tile">🇦🇺</div>
+          <div class="photo-tile">💍</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p data-en="We can’t wait to celebrate with you! ❤" data-it="Non vediamo l'ora di festeggiare con voi! ❤">Non vediamo l'ora di festeggiare con voi! ❤</p>
+  </footer>
+
+  <script>
+    function toggleLanguage() {
+      const button = document.querySelector('.lang-toggle');
+      const isEnglish = button.textContent.includes('English');
+
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const val = isEnglish ? el.getAttribute('data-en') : el.getAttribute('data-it');
+        if (el.tagName === 'A' || el.tagName === 'BUTTON' || el.classList.contains('message')) {
+          el.textContent = val;
+        } else {
+          el.innerHTML = val;
+        }
+      });
+
+      button.textContent = isEnglish ? '🇮🇹 Italiano' : '🇬🇧 English';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('[data-it]').forEach(el => {
+        const it = el.getAttribute('data-it');
+        if (el.tagName === 'A' || el.tagName === 'BUTTON' || el.classList.contains('message')) {
+          el.textContent = it;
+        } else {
+          el.innerHTML = it;
+        }
+      });
+      document.querySelector('.lang-toggle').textContent = '🇬🇧 English';
+    });
+  </script>
+</body>
+</html>
